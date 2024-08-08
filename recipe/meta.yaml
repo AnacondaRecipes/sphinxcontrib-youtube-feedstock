@@ -10,17 +10,17 @@ source:
   sha256: eb7871c8af47fd2b5c9727615354b7f95bce554be8be45b9fa8e5bc022f88059
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  skip: True  # [py<36]
   number: 0
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
-    - flit
+    - flit-core >=3.5,<4
   run:
-    - python >=3.6
+    - python
     - sphinx >=6.1
     - requests
 
@@ -47,4 +47,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - moorepants
+    - dham
