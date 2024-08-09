@@ -21,7 +21,8 @@ requirements:
     - flit-core >=3.5,<4
   run:
     - python
-    - sphinx >=6.1
+    # Latest sphinx does not have Python 3.8 support
+    - sphinx >=6.1 # [py>38]
     - requests
 
 test:
