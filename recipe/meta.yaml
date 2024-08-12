@@ -11,7 +11,7 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: True  # [py<36]
+  skip: True  # [py<39] no sphinx >=6.1 on main which satisfies py38
   number: 0
 
 requirements:
@@ -21,8 +21,7 @@ requirements:
     - flit-core >=3.5,<4
   run:
     - python
-    # Latest sphinx does not have Python 3.8 support
-    - sphinx >=6.1 # [py>38]
+    - sphinx >=6.1
     - requests
 
 test:
